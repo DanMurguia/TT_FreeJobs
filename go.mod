@@ -11,7 +11,6 @@ require (
 	github.com/karrick/godirwalk v1.10.3 // indirect
 	github.com/kisielk/errcheck v1.2.0 // indirect
 	github.com/pelletier/go-toml v1.4.0 // indirect
-	github.com/ptilotta/twittor v0.0.0-20200419231543-94a3074739ce
 	github.com/rs/cors v1.8.3
 	github.com/sirupsen/logrus v1.4.2 // indirect
 	github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c // indirect
