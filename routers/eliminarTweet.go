@@ -3,7 +3,7 @@ package routers
 import (
 	"net/http"
 
-	"github.com/ptilotta/twittor/bd"
+	"github.com/DanMurguia/TT_FreeJobs/bd"
 )
 
 /*EliminarTweet permite borrar un Tweet determinado */

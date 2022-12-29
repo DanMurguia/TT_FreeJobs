@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/ptilotta/twittor/bd"
+	"github.com/DanMurguia/TT_FreeJobs/bd"
 )
 
 /*LeoTweetsSeguidores lee los tweets de todos nuestros seguidores */

@@ -1,7 +1,7 @@
 package bd
 
 import (
-	"github.com/ptilotta/twittor/models"
+	"github.com/DanMurguia/TT_FreeJobs/models"
 	"golang.org/x/crypto/bcrypt"
 )
 

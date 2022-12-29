@@ -5,8 +5,8 @@ import (
 	"strings"
 
 	jwt "github.com/dgrijalva/jwt-go"
-	"github.com/ptilotta/twittor/bd"
-	"github.com/ptilotta/twittor/models"
+	"github.com/DanMurguia/TT_FreeJobs/bd"
+	"github.com/DanMurguia/TT_FreeJobs/models"
 )
 
 /*Email valor de Email usado en todos los EndPoints */

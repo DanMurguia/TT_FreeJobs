@@ -6,7 +6,7 @@ import (
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 
-	"github.com/ptilotta/twittor/models"
+	"github.com/DanMurguia/TT_FreeJobs/models"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
@@ -15,7 +15,7 @@ func InsertoTweet(t models.GraboTweet) (string, bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
-	db := MongoCN.Database("twittor")
+	db := MongoCN.Database("FreeJobs")
 	col := db.Collection("tweet")
 
 	registro := bson.M{

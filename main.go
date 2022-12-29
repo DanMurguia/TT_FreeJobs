@@ -3,9 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/ptilotta/twittor/bd"
-	"github.com/ptilotta/twittor/handlers"
-)
+	"github.com/DanMurguia/TT_FreeJobs/bd"
+	"github.com/DanMurguia/TT_FreeJobs/handlers")
 
 func main() {
 	if bd.ChequeoConnection() == 0 {

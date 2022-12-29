@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/ptilotta/twittor/bd"
+	"github.com/DanMurguia/TT_FreeJobs/bd"
 )
 
 /*ObtenerBanner envia el Avatar al HTTP */
