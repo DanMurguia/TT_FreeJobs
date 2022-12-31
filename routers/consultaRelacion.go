@@ -3,7 +3,6 @@ package routers
 import (
 	"encoding/json"
 	"net/http"
-
 	"github.com/DanMurguia/TT_FreeJobs/bd"
 	"github.com/DanMurguia/TT_FreeJobs/models"
 )
@@ -17,7 +16,6 @@ func ConsultaRelacion(w http.ResponseWriter, r *http.Request) {
 	t.UsuarioRelacionID = ID
 
 	var resp models.RespuestaConsultaRelacion
-
 	status, err := bd.ConsultoRelacion(t)
 	if err != nil || status == false {
 		resp.Status = false

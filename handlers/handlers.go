@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/gorilla/mux"
 	"github.com/DanMurguia/TT_FreeJobs/middlew"
 	"github.com/DanMurguia/TT_FreeJobs/routers"
+	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
 
@@ -19,9 +19,10 @@ func Manejadores() {
 	router.HandleFunc("/login", middlew.ChequeoBD(routers.Login)).Methods("POST")
 	router.HandleFunc("/verperfil", middlew.ChequeoBD(middlew.ValidoJWT(routers.VerPerfil))).Methods("GET")
 	router.HandleFunc("/modificarPerfil", middlew.ChequeoBD(middlew.ValidoJWT(routers.ModificarPerfil))).Methods("PUT")
+
 	router.HandleFunc("/post", middlew.ChequeoBD(middlew.ValidoJWT(routers.GraboPost))).Methods("POST")
-	router.HandleFunc("/leoTweets", middlew.ChequeoBD(middlew.ValidoJWT(routers.LeoTweets))).Methods("GET")
-	router.HandleFunc("/eliminarTweet", middlew.ChequeoBD(middlew.ValidoJWT(routers.EliminarTweet))).Methods("DELETE")
+	router.HandleFunc("/leoPosts", middlew.ChequeoBD(middlew.ValidoJWT(routers.LeoPosts))).Methods("GET")
+	router.HandleFunc("/eliminarPost", middlew.ChequeoBD(middlew.ValidoJWT(routers.EliminarPost))).Methods("DELETE")
 
 	router.HandleFunc("/subirAvatar", middlew.ChequeoBD(middlew.ValidoJWT(routers.SubirAvatar))).Methods("POST")
 	router.HandleFunc("/obtenerAvatar", middlew.ChequeoBD(routers.ObtenerAvatar)).Methods("GET")
@@ -33,7 +34,7 @@ func Manejadores() {
 	router.HandleFunc("/consultaRelacion", middlew.ChequeoBD(middlew.ValidoJWT(routers.ConsultaRelacion))).Methods("GET")
 
 	router.HandleFunc("/listaUsuarios", middlew.ChequeoBD(middlew.ValidoJWT(routers.ListaUsuarios))).Methods("GET")
-	router.HandleFunc("/leoTweetsSeguidores", middlew.ChequeoBD(middlew.ValidoJWT(routers.LeoTweetsSeguidores))).Methods("GET")
+	router.HandleFunc("/leoPostsSeguidores", middlew.ChequeoBD(middlew.ValidoJWT(routers.LeoPostsSeguidores))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

@@ -2,7 +2,7 @@ package models
 
 import "time"
 
-/*GraboTweet es el formato o estructura que tendrá nuestro Tweet en la BD */
+/*GraboPost es el formato o estructura que tendrá nuestro Post en la BD */
 type GraboPost struct {
 	UserID  string    `bson:"userid" json:"userid,omitempty"`
 	Mensaje string    `bson:"mensaje" json:"mensaje,omitempty"`

@@ -8,7 +8,7 @@ import (
 	"github.com/DanMurguia/TT_FreeJobs/bd"
 )
 
-/*LeoTweets Leo los tweets */
+/*LeoPosts Leo los posts */
 func LeoPosts(w http.ResponseWriter, r *http.Request) {
 
 	ID := r.URL.Query().Get("id")
@@ -28,7 +28,7 @@ func LeoPosts(w http.ResponseWriter, r *http.Request) {
 	}
 
 	pag := int64(pagina)
-	respuesta, correcto := bd.LeoTweets(ID, pag)
+	respuesta, correcto := bd.LeoPosts(ID, pag)
 	if correcto == false {
 		http.Error(w, "Error al leer los tweets", http.StatusBadRequest)
 		return
