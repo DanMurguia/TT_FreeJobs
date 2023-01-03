@@ -9,8 +9,11 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-/*LeoUsuariosTodos Lee los usuarios registrados en el sistema, si se recibe "R" en quienes
-  trae solo los que se relacionan conmigo */
+/*
+LeoUsuariosTodos Lee los usuarios registrados en el sistema, si se recibe "R" en quienes
+
+	trae solo los que se relacionan conmigo
+*/
 func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*models.Usuario, bool) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
@@ -63,7 +66,7 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*mod
 		if incluir == true {
 			s.Password = ""
 			s.Biografia = ""
-			s.SitioWeb = ""
+			s.IsOfer = false
 			s.Ubicacion = ""
 			s.Banner = ""
 			s.Email = ""

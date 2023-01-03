@@ -3,8 +3,8 @@ package jwt
 import (
 	"time"
 
-	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/DanMurguia/TT_FreeJobs/models"
+	jwt "github.com/dgrijalva/jwt-go"
 )
 
 /*GeneroJWT genera el encriptado con JWT */
@@ -19,7 +19,7 @@ func GeneroJWT(t models.Usuario) (string, error) {
 		"fecha_nacimiento": t.FechaNacimiento,
 		"biografia":        t.Biografia,
 		"ubicacion":        t.Ubicacion,
-		"sitioweb":         t.SitioWeb,
+		"is_ofer":          t.IsOfer,
 		"_id":              t.ID.Hex(),
 		"exp":              time.Now().Add(time.Hour * 24).Unix(),
 	}
