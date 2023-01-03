@@ -30,7 +30,7 @@ func LeoPosts(w http.ResponseWriter, r *http.Request) {
 	pag := int64(pagina)
 	respuesta, correcto := bd.LeoPosts(ID, pag)
 	if correcto == false {
-		http.Error(w, "Error al leer los tweets", http.StatusBadRequest)
+		http.Error(w, "Error al leer los posts", http.StatusBadRequest)
 		return
 	}
 

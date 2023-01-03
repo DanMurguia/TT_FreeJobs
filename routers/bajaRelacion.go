@@ -19,7 +19,7 @@ func BajaRelacion(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Ocurrió un error al intentar borrar relación "+err.Error(), http.StatusBadRequest)
 		return
 	}
-	if status == false {
+	if !status {
 		http.Error(w, "No se ha logrado borrar la relación "+err.Error(), http.StatusBadRequest)
 		return
 	}
