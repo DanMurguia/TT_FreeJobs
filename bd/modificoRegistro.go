@@ -37,6 +37,9 @@ func ModificoRegistro(u models.Usuario, ID string) (bool, error) {
 	if len(u.Ubicacion) > 0 {
 		registro["ubicacion"] = u.Ubicacion
 	}
+	if len(u.Phone) > 0 {
+		registro["phone"] = u.Phone
+	}
 	if u.IsOfer {
 		registro["isOffer"] = u.IsOfer
 	}

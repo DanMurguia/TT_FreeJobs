@@ -40,6 +40,9 @@ func Manejadores() {
 	router.HandleFunc("/eliminarResena", middlew.ChequeoBD(middlew.ValidoJWT(routers.EliminarResena))).Methods("DELETE")
 	router.HandleFunc("/leoResenas", middlew.ChequeoBD(middlew.ValidoJWT(routers.LeoResenas))).Methods("GET")
 
+	router.HandleFunc("/subirPostImg", middlew.ChequeoBD(middlew.ValidoJWT(routers.SubirPostImg))).Methods("POST")
+	router.HandleFunc("/obtenerPostImg", middlew.ChequeoBD(routers.ObtenerPostImg)).Methods("GET")
+
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"

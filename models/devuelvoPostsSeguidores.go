@@ -13,6 +13,7 @@ type DevuelvoPostsSeguidores struct {
 	UsuarioRelacionID string             `bson:"usuariorelacionid" json:"userRelationId,omitempty"`
 	Post              struct {
 		Mensaje string    `bson:"mensaje" json:"mensaje,omitempty"`
+		PostImg string    `bson:"postimg" json:"postimg,omitempty"`
 		Fecha   time.Time `bson:"fecha" json:"fecha,omitempty"`
 		ID      string    `bson:"_id" json:"_id,omitempty"`
 	}

@@ -66,6 +66,7 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*mod
 		if incluir == true {
 			s.Password = ""
 			s.Biografia = ""
+			s.Phone = ""
 			s.IsOfer = false
 			s.Ubicacion = ""
 			s.Banner = ""
