@@ -21,7 +21,7 @@ func InsertoPost(t models.GraboPost) (string, bool, error) {
 	registro := bson.M{
 		"userid":  t.UserID,
 		"mensaje": t.Mensaje,
-		"postimg": t.postimg,
+		"postimg": t.PostImg,
 		"fecha":   t.Fecha,
 	}
 	result, err := col.InsertOne(ctx, registro)
