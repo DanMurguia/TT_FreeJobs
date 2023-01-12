@@ -15,7 +15,7 @@ func ObtenerPostImg(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	OpenFile, err := os.Open("uploads/avatars/" + postImg)
+	OpenFile, err := os.Open("uploads/posts/" + postImg)
 	if err != nil {
 		http.Error(w, "Imagen no encontrada", http.StatusBadRequest)
 		return
