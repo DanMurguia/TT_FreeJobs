@@ -21,7 +21,7 @@ func BuscoPerfil(ID string) (models.Usuario, error) {
 	objID, _ := primitive.ObjectIDFromHex(ID)
 
 	condicion := bson.M{
-		"_id": objID,
+		"_id":       objID
 	}
 
 	err := col.FindOne(ctx, condicion).Decode(&perfil)

@@ -28,7 +28,10 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*mod
 	findOptions.SetLimit(20)
 
 	query := bson.M{
-		"nombre": bson.M{"$regex": `(?i)` + search},
+		"$or": []bson.M{
+			bson.M{"nombre": bson.M{"$regex": `(?i)` + search}},
+			bson.M{"biografia": bson.M{"$regex": `(?i)` + search}},
+		},
 	}
 
 	cur, err := col.Find(ctx, query, findOptions)
