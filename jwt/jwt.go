@@ -13,16 +13,18 @@ func GeneroJWT(t models.Usuario) (string, error) {
 	miClave := []byte("CLAVEsecretaDELttFREEjobs")
 
 	payload := jwt.MapClaims{
-		"email":            t.Email,
-		"nombre":           t.Nombre,
-		"apellidos":        t.Apellidos,
-		"fecha_nacimiento": t.FechaNacimiento,
-		"biografia":        t.Biografia,
-		"ubicacion":        t.Ubicacion,
-		"is_ofer":          t.IsOfer,
-		"phone":            t.Phone,
-		"_id":              t.ID.Hex(),
-		"exp":              time.Now().Add(time.Hour * 24).Unix(),
+		"email":             t.Email,
+		"nombre":            t.Nombre,
+		"apellidos":         t.Apellidos,
+		"fecha_nacimiento":  t.FechaNacimiento,
+		"biografia":         t.Biografia,
+		"ubicacion":         t.Ubicacion,
+		"coordenadas":       t.Coordenadas,
+		"coordenadasActual": t.CoordenadasActual,
+		"is_ofer":           t.IsOfer,
+		"phone":             t.Phone,
+		"_id":               t.ID.Hex(),
+		"exp":               time.Now().Add(time.Hour * 24).Unix(),
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, payload)
