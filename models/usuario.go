@@ -20,6 +20,6 @@ type Usuario struct {
 	Biografia         string             `bson:"biografia" json:"biografia,omitempty"`
 	Ubicacion         string             `bson:"ubicacion" json:"ubicacion,omitempty"`
 	Coordenadas       string             `bson:"coordenadas" json:"coordenadas,omitempty"`
-	CoordenadasActual string             `bson:"coordenadasactual" json:"coordenadasActual,omitempty"`
+	CoordenadasActual string             `bson:"coordenadasActual" json:"coordenadasActual,omitempty"`
 	IsOfer            bool               `bson:"isOfer" json:"isOfer,omitempty"`
 }
