@@ -41,7 +41,7 @@ func ModificoRegistro(u models.Usuario, ID string) (bool, error) {
 		registro["coordenadas"] = u.Coordenadas
 	}
 	if len(u.CoordenadasActual) > 0 {
-		registro["coordenadasactual"] = u.CoordenadasActual
+		registro["coordenadasActual"] = u.CoordenadasActual
 	}
 	if len(u.Phone) > 0 {
 		registro["phone"] = u.Phone
