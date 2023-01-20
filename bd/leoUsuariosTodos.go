@@ -2,10 +2,12 @@ package bd
 
 import (
 	"context"
+	"fmt"
 	"time"
 
 	"github.com/DanMurguia/TT_FreeJobs/models"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
@@ -14,7 +16,7 @@ LeoUsuariosTodos Lee los usuarios registrados en el sistema, si se recibe "R" en
 
 	trae solo los que se relacionan conmigo
 */
-func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*models.Usuario, bool) {
+func LeoUsuariosTodos(ID string, coordenadasActual primitive.M, page int64, search string, tipo string) ([]*models.Usuario, bool) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
@@ -27,18 +29,38 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*mod
 	findOptions.SetSkip((page - 1) * 20)
 	findOptions.SetLimit(20)
 
-	query := bson.M{
-		"$or": []bson.M{
-			{"nombre": bson.M{"$regex": `(?i)` + search}},
-			{"biografia": bson.M{"$regex": `(?i)` + search}},
-		},
+	query := bson.M{}
+	if tipo == "new" {
+		query = bson.M{
+			"$or": []bson.M{
+				{"nombre": bson.M{"$regex": `(?i)` + search}},
+				{"biografia": bson.M{"$regex": `(?i)` + search}},
+				{"ubicacion": bson.M{"$regex": `(?i)` + search}},
+			},
+			"coordenadas": bson.M{
+				"$near": bson.M{
+					"$geometry":    coordenadasActual,
+					"$maxDistance": 15000,
+				},
+			},
+		}
+	} else if tipo == "follow" {
+		query = bson.M{
+			"$or": []bson.M{
+				{"nombre": bson.M{"$regex": `(?i)` + search}},
+				{"biografia": bson.M{"$regex": `(?i)` + search}},
+				{"ubicacion": bson.M{"$regex": `(?i)` + search}},
+			},
+		}
 	}
 
 	cur, err := col.Find(ctx, query, findOptions)
 	if err != nil {
+		fmt.Print(err)
 		return results, false
 	}
-
+	fmt.Print("cursor del mal\n")
+	fmt.Print(cur)
 	var encontrado, incluir bool
 
 	for cur.Next(ctx) {
@@ -53,8 +75,9 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*mod
 		r.UsuarioRelacionID = s.ID.Hex()
 
 		incluir = false
-
-		encontrado, err = ConsultoRelacion(r)
+		fmt.Print("\nUsuario\n")
+		fmt.Print(s)
+		encontrado, _ = ConsultoRelacion(r)
 		if tipo == "new" && !encontrado {
 			incluir = true
 		}
@@ -74,8 +97,6 @@ func LeoUsuariosTodos(ID string, page int64, search string, tipo string) ([]*mod
 			s.Ubicacion = ""
 			s.Banner = ""
 			s.Email = ""
-			s.Coordenadas = ""
-			s.CoordenadasActual = ""
 			results = append(results, &s)
 		}
 	}

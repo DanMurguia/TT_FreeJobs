@@ -4,9 +4,9 @@ import (
 	"errors"
 	"strings"
 
-	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/DanMurguia/TT_FreeJobs/bd"
 	"github.com/DanMurguia/TT_FreeJobs/models"
+	jwt "github.com/dgrijalva/jwt-go"
 )
 
 /*Email valor de Email usado en todos los EndPoints */

@@ -19,7 +19,7 @@ type Usuario struct {
 	Banner            string             `bson:"banner" json:"banner,omitempty"`
 	Biografia         string             `bson:"biografia" json:"biografia,omitempty"`
 	Ubicacion         string             `bson:"ubicacion" json:"ubicacion,omitempty"`
-	Coordenadas       string             `bson:"coordenadas" json:"coordenadas,omitempty"`
-	CoordenadasActual string             `bson:"coordenadasActual" json:"coordenadasActual,omitempty"`
+	Coordenadas       primitive.M        `bson:"coordenadas" json:"coordenadas,omitempty"`
+	CoordenadasActual primitive.M        `bson:"coordenadasActual" json:"coordenadasActual,omitempty"`
 	IsOfer            bool               `bson:"isOfer" json:"isOfer,omitempty"`
 }
